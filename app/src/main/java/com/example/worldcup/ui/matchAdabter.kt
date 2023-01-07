@@ -3,7 +3,6 @@ package com.example.worldcup.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.worldcup.R
@@ -11,13 +10,13 @@ import com.example.worldcup.data.domain.Match
 import com.example.worldcup.databinding.ItemsMatchBinding
 
 
-class matchAdabter(private var list: List<Match>, val listener: MatchInteractionListener) :
+class matchAdabter(private var list: List<Match>,private val listener: MatchInteractionListener) :
     RecyclerView.Adapter<matchAdabter.MatchViewHolder>() {
 
     //لتحويل الitems من الxml الي view عن طريق layoutinflater ثم نحولها الي viewholder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.items_match_vertical, parent, false)
+            .inflate(R.layout.items_match, parent, false)
         return MatchViewHolder(view)
     }
 
@@ -80,6 +79,11 @@ class matchAdabter(private var list: List<Match>, val listener: MatchInteraction
             }
             root.setOnClickListener{listener.onClickItem(currentMatch)}
         }
+    }
+
+    fun setData(newList: List<Match>){
+        list = newList
+        notifyDataSetChanged()
     }
 
     // calculate size items
