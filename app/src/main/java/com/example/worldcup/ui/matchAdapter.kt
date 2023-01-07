@@ -10,8 +10,8 @@ import com.example.worldcup.data.domain.Match
 import com.example.worldcup.databinding.ItemsMatchBinding
 
 
-class matchAdabter(private var list: List<Match>,private val listener: MatchInteractionListener) :
-    RecyclerView.Adapter<matchAdabter.MatchViewHolder>() {
+class matchAdapter(private var list: List<Match>, private val listener: MatchInteractionListener) :
+    RecyclerView.Adapter<matchAdapter.MatchViewHolder>() {
 
     //لتحويل الitems من الxml الي view عن طريق layoutinflater ثم نحولها الي viewholder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchViewHolder {

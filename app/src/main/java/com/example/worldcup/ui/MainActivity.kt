@@ -16,12 +16,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MatchInteractionListen
     override val LOG_TAG: String = "MAIN_ACTIVITY"
     override val bindingInflater: (LayoutInflater) -> ActivityMainBinding =
         ActivityMainBinding::inflate
-    lateinit var adabter: matchAdabter
+    lateinit var adapter: matchAdapter
 
     override fun setup() {
         parseFile()
-        adabter = matchAdabter(DataManger.matches, this)
-        binding.recyclerViewMatches.adapter = adabter
+        adapter = matchAdapter(DataManger.matches, this)
+        binding.recyclerViewMatches.adapter = adapter
     }
 
 
@@ -42,7 +42,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MatchInteractionListen
             stadium = "Cairo Stadium"
         )
         DataManger.addMatch(finalMatch)
-        adabter.setData(DataManger.matches)
+        adapter.setData(DataManger.matches)
     }
 
 
