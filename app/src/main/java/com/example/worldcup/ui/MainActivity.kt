@@ -66,4 +66,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MatchInteractionListen
         Toast.makeText(applicationContext, name, Toast.LENGTH_SHORT).show()
     }
 
+    override fun onClickDeleteItem(index: Int) {
+        DataManger.deleteItem(index)
+        adapter.setData(DataManger.matches)
+    }
+
 }

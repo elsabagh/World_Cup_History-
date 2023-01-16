@@ -5,31 +5,35 @@ import com.example.worldcup.data.domain.Match
 object DataManger {
     private val matchesList = mutableListOf<Match>()
     val matches: List<Match>
-        get() = matchesList.reversed()
+        get() = matchesList
 
     private var matchIndex = 0
 
-    fun addMatch(match: Match){
+    fun addMatch(match: Match) {
         matchesList.add(match)
     }
 
-    fun addMatchIndex(match: Match, index: Int){
+    fun addMatchIndex(match: Match, index: Int) {
         matchesList.add(index, match)
+    }
+
+    fun deleteItem(index: Int) {
+        matchesList.removeAt(index)
     }
 
     fun getCurrentMatch(): Match = matchesList[matchIndex]
 
-    fun getNextMatch(): Match{
+    fun getNextMatch(): Match {
         matchIndex++
-        if (matchIndex == matchesList.size){
+        if (matchIndex == matchesList.size) {
             matchIndex = 0
         }
         return matchesList[matchIndex]
     }
 
-    fun getPreviousMatch(): Match{
+    fun getPreviousMatch(): Match {
         matchIndex--
-        if (matchIndex == -1){
+        if (matchIndex == -1) {
             matchIndex = matchesList.size - 1
         }
         return matchesList[matchIndex]

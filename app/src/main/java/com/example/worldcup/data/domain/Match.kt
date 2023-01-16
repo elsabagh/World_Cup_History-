@@ -4,14 +4,15 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-data class Match (
+data class Match(
     val year: Int,
     val stadium: String,
     val city: String,
     val homeTeamName: String,
     val awayTeamName: String,
     val homeTeamGoals: Int,
-    val awayTeamGoals: Int) :Parcelable {
+    val awayTeamGoals: Int
+) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!,

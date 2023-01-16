@@ -35,6 +35,9 @@ class matchAdapter(private var list: List<Match>, private val listener: MatchInt
             textAwayName.setOnClickListener {
                 listener.onClickTeamName(currentMatch.awayTeamName)
             }
+            iconDeleteItem.setOnClickListener{
+                listener.onClickDeleteItem(position)
+            }
             if (currentMatch.homeTeamGoals > currentMatch.awayTeamGoals) {
                 textHomeGoals.setTextColor(
                     ContextCompat.getColor(
@@ -49,7 +52,8 @@ class matchAdapter(private var list: List<Match>, private val listener: MatchInt
                     )
                 )
 
-            } else if (currentMatch.homeTeamGoals < currentMatch.awayTeamGoals) {
+            }
+            else if (currentMatch.homeTeamGoals < currentMatch.awayTeamGoals) {
                 textHomeGoals.setTextColor(
                     ContextCompat.getColor(
                         holder.binding.root.context,
